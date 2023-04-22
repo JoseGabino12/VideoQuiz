@@ -1,18 +1,18 @@
-import { useNavigate } from 'react-router-dom'
+import QuizCard from '../../components/QuizCard/quiz-card'
+import { quizes } from '../../data/quizes'
 import './home.css'
 
 const Home = () => {
-  const navigate = useNavigate()
-
-  const handleClick = () => {
-    navigate('/quizes')
-  }
   return (
     <div className='home-div'>
       <h1>Video Cuestionario</h1>
-      <button onClick={handleClick}>Grabar video</button>
+      <div className='card-div'>
+        {quizes.map((quiz, index) => (
+          <QuizCard key={index} quiz={quiz} />
+        ))}
+      </div>
       <div className='button-div'>
-        <button>Envíar respuestas</button>
+        <button disabled>Envíar respuestas</button>
       </div>
     </div>
   )

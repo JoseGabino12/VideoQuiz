@@ -1,9 +1,4 @@
-import {
-  Route,
-  Routes,
-  BrowserRouter as Router,
-  Navigate
-} from 'react-router-dom'
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 
 import routes from './routes/routes'
 

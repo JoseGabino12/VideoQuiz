@@ -9,7 +9,7 @@ const routes = [
   },
   {
     name: 'quizes',
-    path: '/quizes',
+    path: '/quiz/:id',
     Component: Quiz
   }
 ]

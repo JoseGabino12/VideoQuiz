@@ -1,4 +1,4 @@
-const quizes = [
+export const quizes = [
   {
     id: 1,
     title: '¿Cuál fue tu juego favorito durante tu infancia?',

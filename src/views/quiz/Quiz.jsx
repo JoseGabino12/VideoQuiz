@@ -1,33 +1,32 @@
-import { ReactMediaRecorder } from 'react-media-recorder'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 
+import { quizes } from '../../data/quizes'
+
 import './quiz.css'
+import VideCard from '../../components/VideoCard/video-card'
 
 const Quiz = () => {
   const navigate = useNavigate()
+  const { id } = useParams()
+  const quiz = quizes.find((quiz) => quiz.id === parseInt(id))
 
   const handleBack = () => {
     navigate('/')
   }
+
   return (
-    <div className='quiz-div'>
+    <div className='quiz-card-div'>
       <button onClick={handleBack} className='btn-arrowBack'>
         <BiArrowBack />
         Atrás
       </button>
-      <h1>Video Cuestionario</h1>
-      <ReactMediaRecorder
-        video
-        render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
-          <div>
-            <button onClick={startRecording}>Start</button>
-            <button onClick={stopRecording}>Stop</button>
-            <p>{status}</p>
-            <video src={mediaBlobUrl} controls autoPlay loop />
-          </div>
-        )}
-      />
+
+      <div className='quiz-div'>
+        <h1>{quiz?.title}</h1>
+
+        <VideCard />
+      </div>
     </div>
   )
 }
