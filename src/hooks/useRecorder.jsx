@@ -5,13 +5,16 @@ export const useRecorder = (quiz) => {
   const [recordBlob, setRecordBlob] = useState([])
   const mediaRecorderRef = useRef(null)
 
-  const initial = async (videoRef, setIsLoading) => {
+  const initial = async (videoRef, setIsLoading, videoRecorderRef) => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia(constraints)
       setIsLoading(false)
       const video = videoRef.current
       window.stream = stream
       video.srcObject = stream
+
+      videoRef.current.src = null
+      videoRef.current.controls = false
     } catch (e) {
       console.log(e)
     }

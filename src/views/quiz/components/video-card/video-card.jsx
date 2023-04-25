@@ -27,7 +27,7 @@ const VideoCard = ({ quiz }) => {
       resetRecording(setIsRecorded, videoRef, setIsLoading)
     }
 
-    initial(videoRef, setIsLoading)
+    initial(videoRef, setIsLoading, videoRecorderRef)
   }, [quiz])
 
   return (
