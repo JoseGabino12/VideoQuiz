@@ -16,13 +16,14 @@ export const useTimer = () => {
     return () => clearInterval(intervalId)
   }, [running])
 
-  const startTimer = (duration = 0) => {
+  const startTimer = (duration = 0, handleStop) => {
     setTime(0)
     setRunning(true)
 
     if (duration > 0) {
       setTimeout(() => {
         setRunning(false)
+        handleStop()
       }, duration * 1000)
     }
   }

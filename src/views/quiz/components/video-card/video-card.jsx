@@ -9,16 +9,15 @@ const VideoCard = ({ quiz }) => {
   const videoRef = useRef()
   const videoRecorderRef = useRef()
 
-  const [recordBlob, setRecordBlob] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [isRecorded, setIsRecorded] = useState(false)
   const [isRecordingStopped, setIsRecordingStopped] = useState(false)
 
   const { startRecording, stopRecording, startPlay, resetRecording, initial } =
-    useRecorder(setRecordBlob, recordBlob, quiz)
+    useRecorder(quiz)
 
   const handlePlay = () => {
-    startPlay(videoRecorderRef, recordBlob, isRecordingStopped)
+    startPlay(videoRecorderRef, isRecordingStopped)
   }
 
   useEffect(() => {

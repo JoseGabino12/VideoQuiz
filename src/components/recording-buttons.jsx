@@ -8,23 +8,20 @@ const RecordingButtons = ({
   startTimer,
   stopTimer
 }) => {
-  const mediaRecorderRef = useRef(null)
-
   const [isRecording, setIsRecording] = useState(false)
 
-  const handleRecord = () => {
-    startTimer(5)
-    startRecording(mediaRecorderRef)
-    setIsRecording(true)
-  }
-
   const handleStop = () => {
-    stopRecording(mediaRecorderRef)
-
+    stopRecording()
     stopTimer()
     setIsRecorded(true)
     setIsRecording(false)
     setIsRecordingStopped(true)
+  }
+
+  const handleRecord = () => {
+    startTimer(5, handleStop)
+    startRecording()
+    setIsRecording(true)
   }
 
   return (

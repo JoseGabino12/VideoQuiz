@@ -1,6 +1,10 @@
+import { useState, useRef } from 'react'
 import { constraints } from '../data/constraints'
 
-export const useRecorder = (setRecordBlob, recordBlob, quiz) => {
+export const useRecorder = (quiz) => {
+  const [recordBlob, setRecordBlob] = useState([])
+  const mediaRecorderRef = useRef(null)
+
   const initial = async (videoRef, setIsLoading) => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia(constraints)
@@ -21,7 +25,7 @@ export const useRecorder = (setRecordBlob, recordBlob, quiz) => {
     }
   }
 
-  const startRecording = (mediaRecorderRef) => {
+  const startRecording = () => {
     setRecordBlob([])
 
     try {
@@ -34,7 +38,7 @@ export const useRecorder = (setRecordBlob, recordBlob, quiz) => {
     mediaRecorderRef.current.start()
   }
 
-  const stopRecording = (mediaRecorderRef) => {
+  const stopRecording = () => {
     mediaRecorderRef.current.stop()
     const tracks = window.stream.getTracks()
 
@@ -45,7 +49,7 @@ export const useRecorder = (setRecordBlob, recordBlob, quiz) => {
     quiz.completed = true
   }
 
-  const startPlay = (videoRecorderRef, recordBlob, isRecordingStopped) => {
+  const startPlay = (videoRecorderRef, isRecordingStopped) => {
     if (recordBlob.length === 0) {
       console.log('No recorded data available')
       return
