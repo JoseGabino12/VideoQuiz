@@ -19,7 +19,7 @@ const RecordingButtons = ({
   }
 
   const handleRecord = () => {
-    startTimer(5, handleStop)
+    startTimer(120, handleStop)
     startRecording()
     setIsRecording(true)
   }

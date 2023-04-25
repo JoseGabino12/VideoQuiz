@@ -1,6 +1,5 @@
 import { BsRecordFill, BsPlayBtn } from 'react-icons/bs'
 import { useTimer } from '../../../../hooks/useTimer'
-import { useEffect, useState } from 'react'
 
 import RecordingButtons from '../../../../components/recording-buttons'
 import RecordedButtons from '../../../../components/recorded-buttons'
@@ -16,7 +15,7 @@ const Controls = ({
   startRecording,
   setIsRecordingStopped
 }) => {
-  const { formattedTime, startTimer, stopTimer, resetTimer } = useTimer(5)
+  const { formattedTime, startTimer, stopTimer, resetTimer } = useTimer()
 
   return (
     <div className='controls-div'>
