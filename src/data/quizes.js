@@ -6,17 +6,22 @@ export const quizes = [
   },
   {
     id: 2,
-    title: '¿Cuál fue tu juego favorito durante tu infancia?',
+    title: '¿Cuál es tu canción favorita?',
     completed: false
   },
   {
     id: 3,
-    title: '¿Cuál fue tu juego favorito durante tu infancia?',
+    title: '¿Cómo se llama tu perro?',
     completed: false
   },
   {
     id: 4,
-    title: '¿Cuál fue tu juego favorito durante tu infancia?',
+    title: '¿Cómo se llama tu perro?',
+    completed: false
+  },
+  {
+    id: 5,
+    title: '¿Cuál es tu película favorita?',
     completed: false
   }
 ]

@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { BiArrowBack } from 'react-icons/bi'
 
+import { BiArrowBack } from 'react-icons/bi'
 import { quizes } from '../../data/quizes'
 
+import VideoCard from './components/video-card/video-card'
+import ButtonsPrevNext from './components/next-prev/buttons'
+
 import './quiz.css'
-import VideCard from '../../components/VideoCard/video-card'
 
 const Quiz = () => {
   const navigate = useNavigate()
@@ -12,6 +14,12 @@ const Quiz = () => {
   const quiz = quizes.find((quiz) => quiz.id === parseInt(id))
 
   const handleBack = () => {
+    const tracks = window.stream.getTracks()
+
+    tracks.forEach((track) => {
+      track.stop()
+    })
+
     navigate('/')
   }
 
@@ -25,8 +33,10 @@ const Quiz = () => {
       <div className='quiz-div'>
         <h1>{quiz?.title}</h1>
 
-        <VideCard />
+        <VideoCard quiz={quiz} />
       </div>
+
+      <ButtonsPrevNext id={id} quizes={quizes} />
     </div>
   )
 }

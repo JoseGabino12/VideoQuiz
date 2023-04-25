@@ -1,5 +1,5 @@
-import Recorder from '../../assets/recorder.jpeg'
-import Completed from '../../assets/completed.png'
+import Recorder from '../../../assets/recorder.jpeg'
+import Completed from '../../../assets/completed.png'
 
 import { useNavigate } from 'react-router-dom'
 

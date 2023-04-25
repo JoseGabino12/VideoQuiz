@@ -2,7 +2,7 @@
   background-color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 0 0 10px #ccc;
-  height: 90vh;
+  min-height: 91vh;
   margin: 20px;
   padding: 20px;
   display: flex;
@@ -23,8 +23,27 @@
 .card-div {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   gap: 20px;
+}
+
+.finish-home-btn {
+  margin-top: 20px;
+  background-color: #f44336; /* color rojo */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.finish-home-btn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
 }

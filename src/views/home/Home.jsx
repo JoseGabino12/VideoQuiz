@@ -1,8 +1,9 @@
-import QuizCard from '../../components/QuizCard/quiz-card'
+import QuizCard from './components/quiz-card'
 import { quizes } from '../../data/quizes'
 import './home.css'
 
 const Home = () => {
+  const completed = quizes.filter((quiz) => quiz.completed === false)
   return (
     <div className='home-div'>
       <h1>Video Cuestionario</h1>
@@ -11,9 +12,12 @@ const Home = () => {
           <QuizCard key={index} quiz={quiz} />
         ))}
       </div>
-      <div className='button-div'>
-        <button disabled>Envíar respuestas</button>
-      </div>
+
+      {completed.length === 0 && (
+        <div className='button-div'>
+          <button className='finish-home-btn'>Envíar respuestas</button>
+        </div>
+      )}
     </div>
   )
 }
